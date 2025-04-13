@@ -1,0 +1,507 @@
+/* <editor-fold defaultstate="collapsed" desc="BGA UI"> */
+#overall-content div,img {
+	user-select: none;
+}
+/* </editor-fold> */
+
+.TANNscrollArea {
+	margin: auto;
+	max-width: 70vw;
+	max-height: 70vh;
+    overflow: auto;
+}
+.TANNzoom {
+	transform-origin: top;
+	transform: scale(2);
+	border-radius: 5px;
+	background: #00000040;
+	z-index: 1;
+}
+.TANNzoomIcon {
+	background-color: #ffffffc0;
+	border-radius: 50%;
+}
+.TANNzoomIcon:hover {
+	box-shadow: 0px 0px 2px 2px black;
+}
+
+/* <editor-fold defaultstate="collapsed" desc="board"> */
+.TANNboard {
+	width: 2048px;
+	height: 2048px;
+    transform-origin: top left;
+}
+.TANNbackground {
+	width: 2048px;
+	height: 2048px;
+}
+.TANNbackground[data-map='Castle']
+{
+	background-image: url('img/maps/Castle.jpg');
+}
+.TANNbackground[data-map='Catacombs']
+{
+	background-image: url('img/maps/Catacombs.jpg');
+}
+/* </editor-fold> */
+/* <editor-fold defaultstate="collapsed" desc="sheets"> */
+.TANNsheets {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin: 5px;
+}
+.TANNsheet {
+	position: relative;
+	flex: 1 1 20%;
+	aspect-ratio: 1/1;
+	margin: 5px;
+	background-size: 100%;
+	border-radius: 5px;
+}
+.TANNsheet[data-faction='Reich']
+{
+	background-image: url('img/Reich/sheets.jpg');
+}
+.TANNsheet[data-name='Eva Krämer'][data-faction='Reich']
+{
+	background-position-y: 20%;
+}
+.TANNsheet[data-name='Hermann Von Heïzinger'][data-faction='Reich']
+{
+	background-position-y: 40%;
+}
+.TANNsheet[data-name='Karl Zermann'][data-faction='Reich']
+{
+	background-position-y: 60%;
+}
+.TANNsheet[data-name='Schocktruppen'][data-faction='Reich']
+{
+	background-position-y: 80%;
+}
+.TANNsheet[data-name='Stosstruppen'][data-faction='Reich']
+{
+	background-position-y: 100%;
+}
+.TANNsheet[data-faction='Union']
+{
+	background-image: url('img/Union/sheets.jpg');
+}
+.TANNsheet[data-name='John MacNeal'][data-faction='Union']
+{
+	background-position-y: 20%;
+}
+.TANNsheet[data-name='Barry Daniel Brown'][data-faction='Union']
+{
+	background-position-y: 40%;
+}
+.TANNsheet[data-name='Tala Aponi'][data-faction='Union']
+{
+	background-position-y: 60%;
+}
+.TANNsheet[data-name='Commando Alpha'][data-faction='Union']
+{
+	background-position-y: 80%;
+}
+.TANNsheet[data-name='Commando Delta'][data-faction='Union']
+{
+	background-position-y: 100%;
+}
+/* </editor-fold> */
+/* <editor-fold defaultstate="collapsed" desc="packs"> */
+.TANNpack {
+	border: 2px solid black;
+	color: white;
+	margin: 5px;
+}
+.TANNpack-banner {
+	background-color: #dec9b6 !important;
+	text-align: center;
+	font-weight: bold;
+}
+.TANNpack-title {
+	padding: 2px;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+}
+.TANNpack-lore {
+	padding: 2px;
+	text-align: left;
+	font-style: italic;
+	font-size: x-small;
+	color: white;
+}
+.TANNpack-description {
+	padding: 2px;
+	text-align: left;
+	font-size: small;
+	color: black;
+}
+.TANNpack[data-faction='Reich']
+{
+	background-color: #597f66;
+}
+.TANNpack[data-faction='Reich']>.TANNpack-description
+{
+	background-color: #a6beb0;
+}
+.TANNpack[data-faction='Union']
+{
+	background-color: #bdb172;
+}
+.TANNpack[data-faction='Union']>.TANNpack-description
+{
+	background-color: #e4dac1;
+}
+.TANNpack[data-pack='COMBAT PACK']
+{
+	color: #7f1416;
+	background-color: #7f1416;
+}
+.TANNpack[data-pack='COMBAT PACK']>.TANNpack-description
+{
+	background-color: #db634c;
+}
+.TANNpack[data-pack='STAMINA PACK']
+{
+	color: #597f5a;
+	background-color: #597f5a;
+}
+.TANNpack[data-pack='STAMINA PACK']>.TANNpack-description
+{
+	background-color: #9cbc8a;
+}
+.TANNpack[data-pack='COMMAND PACK']
+{
+	color: #25408e;
+	background-color: #25408e;
+}
+.TANNpack[data-pack='COMMAND PACK']>.TANNpack-description
+{
+	background-color: #7ca9da;
+}
+/* </editor-fold> */
+/* <editor-fold defaultstate="collapsed" desc="characters"> */
+.TANNcharacter {
+	aspect-ratio: 1/1;
+	background-size: 100%;
+	vertical-align: middle;
+}
+.TANNcharacter[data-faction='Reich'] {
+	background-image: url('img/Reich/characters.png');
+}
+.TANNcharacter[data-faction='Union'] {
+	background-image: url('img/Union/characters.png');
+}
+.TANNcharacter[data-name='Eva Krämer'][data-faction='Reich']
+{
+	background-position-y: 0%;
+}
+.TANNcharacter[data-name='Hermann Von Heïzinger'][data-faction='Reich']
+{
+	background-position-y: 25%;
+}
+.TANNcharacter[data-name='Karl Zermann'][data-faction='Reich']
+{
+	background-position-y: 50%;
+}
+.TANNcharacter[data-name='Schocktruppen'][data-faction='Reich']
+{
+	background-position-y: 75%;
+}
+.TANNcharacter[data-name='Stosstruppen'][data-faction='Reich']
+{
+	background-position-y: 100%;
+}
+.TANNcharacter[data-name='John MacNeal'][data-faction='Union']
+{
+	background-position-y: 0%;
+}
+.TANNcharacter[data-name='Barry Daniel Brown'][data-faction='Union']
+{
+	background-position-y: 25%;
+}
+.TANNcharacter[data-name='Tala Aponi'][data-faction='Union']
+{
+	background-position-y: 50%;
+}
+.TANNcharacter[data-name='Commando Alpha'][data-faction='Union']
+{
+	background-position-y: 75%;
+}
+.TANNcharacter[data-name='Commando Delta'][data-faction='Union']
+{
+	background-position-y: 100%;
+}
+/* </editor-fold> */
+/* <editor-fold defaultstate="collapsed" desc="tokens"> */
+.TANNtoken {
+	height: 100%;
+	aspect-ratio: 1;
+	background-size: 100%;
+	vertical-align: middle;
+	border-radius: 50%;
+	transition: scale .5s, transform .5s, box-shadow .5s;
+}
+.TANNsheet>.TANNtoken {
+	position: absolute;
+	height: 21%;
+}
+.TANNsheet>.TANNtoken:hover {
+    box-shadow: 0px 0px 5px 5px white;
+	transition: scale .25s, transform .25s, box-shadow .25s;
+	z-index: 1;
+	scale: 1.5;
+}
+.TANNsheet>.TANNtoken:nth-child(1)
+{
+	left: 48%;
+	top: 52%;
+}
+.TANNsheet>.TANNtoken:nth-child(2)
+{
+	left: 70%;
+	top: 52%;
+}
+.TANNsheet>.TANNtoken:nth-child(3)
+{
+	left: 48%;
+	top: 73.5%;
+}
+.TANNsheet>.TANNtoken:nth-child(4)
+{
+	left: 70%;
+	top: 73.5%;
+}
+.TANNtoken[data-faction='Reich'] {
+	background-image: url('img/Reich/packs.png');
+}
+.TANNtoken[data-faction='Union'] {
+	background-image: url('img/Union/packs.png');
+}
+.TANNtoken[data-faction='Reich'][data-type='CELERITY']
+{
+	background-position-y: CALC(0 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='COMBAT KNIFE']
+{
+	background-position-y: CALC(1 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='CRITICAL HIT']
+{
+	background-position-y: CALC(2 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='DEMON TAINT']
+{
+	background-position-y: CALC(3 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='DOOM']
+{
+	background-position-y: CALC(4 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='EXTRA AMMUNITION']
+{
+	background-position-y: CALC(5 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='EYE OF TAGES']
+{
+	background-position-y: CALC(6 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='FIRST AID KIT']
+{
+	background-position-y: CALC(7 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='GENERALLEUTNANT']
+{
+	background-position-y: CALC(8 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='HERMETICA ASTRA']
+{
+	background-position-y: CALC(9 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='HERMETICA OCCULTA']
+{
+	background-position-y: CALC(10 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='HERMETICA UMBRA']
+{
+	background-position-y: CALC(11 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='IMMUNITY TO PAIN']
+{
+	background-position-y: CALC(12 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='INFILTRATION']
+{
+	background-position-y: CALC(13 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='IRON CROSS 1ST CLASS']
+{
+	background-position-y: CALC(14 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='IRON CROSS 2ND CLASS']
+{
+	background-position-y: CALC(15 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='KEEP FIRING']
+{
+	background-position-y: CALC(16 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='LUGER P-08']
+{
+	background-position-y: CALC(17 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='MAD MINUTE']
+{
+	background-position-y: CALC(18 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='MAUSER C96']
+{
+	background-position-y: CALC(19 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='MP40']
+{
+	background-position-y: CALC(20 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='NOT DEAD YET']
+{
+	background-position-y: CALC(21 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='OBERLEUTNANT']
+{
+	background-position-y: CALC(22 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='PATMOS AMULET']
+{
+	background-position-y: CALC(23 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='RINGKRAGEN']
+{
+	background-position-y: CALC(24 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='SHA-NA-RA']
+{
+	background-position-y: CALC(25 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='STIELHANDGRENATE']
+{
+	background-position-y: CALC(26 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='STRAFE']
+{
+	background-position-y: CALC(27 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='SUPERNATURAL STRENGTH']
+{
+	background-position-y: CALC(28 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Reich'][data-type='WALTHER P.38']
+{
+	background-position-y: CALC(29 * CALC(100% / 29));
+}
+.TANNtoken[data-faction='Union'][data-type='BA-27']
+{
+	background-position-y: CALC(0 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='BG-42']
+{
+	background-position-y: CALC(1 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='CAPTAIN']
+{
+	background-position-y: CALC(2 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='COLT .45 1911 A1']
+{
+	background-position-y: CALC(3 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='COMBAT INFANTRY BADGE']
+{
+	background-position-y: CALC(4 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='CORPORAL']
+{
+	background-position-y: CALC(5 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='EXPERT INFANTRY BADGE']
+{
+	background-position-y: CALC(6 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='EXTRA AMMUNITION']
+{
+	background-position-y: CALC(7 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='FIRST AID KIT']
+{
+	background-position-y: CALC(8 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='FLASH MACHINE GUN A6A']
+{
+	background-position-y: CALC(9 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='FLASH-GUN MK1']
+{
+	background-position-y: CALC(10 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='GO! GO! GO!']
+{
+	background-position-y: CALC(11 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='INCREDIBLE STRENGTH']
+{
+	background-position-y: CALC(12 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='KEEP MOVING']
+{
+	background-position-y: CALC(13 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='KNIFE']
+{
+	background-position-y: CALC(14 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='M15']
+{
+	background-position-y: CALC(15 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='M3']
+{
+	background-position-y: CALC(16 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='MEDAL OF HONOR']
+{
+	background-position-y: CALC(17 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='MKII A1']
+{
+	background-position-y: CALC(18 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='MORPHINE SHOT']
+{
+	background-position-y: CALC(19 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='NIGHTEYES']
+{
+	background-position-y: CALC(20 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='REISING M50']
+{
+	background-position-y: CALC(21 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='SERGEANT']
+{
+	background-position-y: CALC(22 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='SILVER STAR']
+{
+	background-position-y: CALC(23 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='SMITH & WESSON 1917']
+{
+	background-position-y: CALC(24 * CALC(100% / 25));
+}
+.TANNtoken[data-faction='Union'][data-type='TNT 440GR']
+{
+	background-position-y: CALC(25 * CALC(100% / 25));
+}
+/* </editor-fold> */

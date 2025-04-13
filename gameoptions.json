@@ -1,0 +1,58 @@
+{
+	"100": {
+		"name": "Modes of Play",
+		"values": {
+			"0":
+					{
+						"name": "Deathmatch mode"
+					},
+			"1":
+					{
+						"name": "🚧 Capture the flag mode 🚧"
+					},
+			"2":
+					{
+						"name": "🚧 Domination mode 🚧"
+					},
+			"3":
+					{
+						"name": "🚧 King of the hill mode 🚧"
+					},
+			"4":
+					{
+						"name": "🚧 Objective mode 🚧"
+					},
+			"5":
+					{
+						"name": "🚧 Story mode 🚧"
+					}
+		}
+	},
+	"105": {
+		"name": "Factions",
+		"values": [
+			{
+				"name": "Faction is randomly chosen"
+			},
+			{
+				"name": "Table administrator will play Union"
+			},
+			{
+				"name": "Table administrator will play Reich"
+			}
+		]
+	},
+	"110": {
+		"name": "Map",
+		"values": {
+			"0":
+					{
+						"name": "Castle Ksiaz"
+					},
+			"1":
+					{
+						"name": "Catacombs"
+					}
+		}
+	}
+}
