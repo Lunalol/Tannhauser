@@ -15,6 +15,7 @@ class Game extends \Table
 	use gameStates;
 	use gameStateArguments;
 	use gameStateActions;
+	use gameUtils;
 
 	public function __construct()
 	{
@@ -35,6 +36,8 @@ class Game extends \Table
 		$player_id = (int) $this->getCurrentPlayerId();
 //
 		$result = [];
+//
+		$result["ADJACENCY"] = Board::ADJACENCY;
 //
 		$result["players"] = $this->getCollectionFromDb("SELECT `player_id` `id`, `player_score` `score` FROM `player`");
 //
@@ -67,8 +70,6 @@ class Game extends \Table
 //
 		$this->reattributeColorsBasedOnPreferences($players, $gameinfos["player_colors"]);
 		$this->reloadPlayersBasicInfos();
-//
-		$this->activeNextPlayer();
 	}
 	protected function getAdminPlayerID(): int
 	{

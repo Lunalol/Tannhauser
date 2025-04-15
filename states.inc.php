@@ -49,7 +49,13 @@ $machinestates = [
 		'descriptionmyturn' => clienttranslate('${you} must choose one equipment pack for each of your characters'),
 		'type' => 'multipleactiveplayer',
 		'args' => 'argChoosePacks',
-		'possibleactions' => ['actChoosePacks'],
+		'possibleactions' => ['actChoosePacks', 'actCancel'],
+		'transitions' => ['continue' => 56]
+	],
+	56 => [
+		'name' => 'PacksReveal',
+		'type' => 'game',
+		'action' => 'stPacksReveal',
 		'transitions' => ['continue' => 60]
 	],
 // 6. CHOOSE BONUS TOKENS
@@ -57,6 +63,21 @@ $machinestates = [
 		'name' => 'Bonus',
 		'type' => 'game',
 		'action' => 'stBonus',
+		'transitions' => ['continue' => 65]
+	],
+// SETUP ROLLS
+	65 => [
+		'name' => 'SetupRolls',
+		'type' => 'game',
+		'action' => 'stSetupRolls',
+		'transitions' => ['continue' => 66]
+	],
+	66 => [
+		'name' => 'Reroll',
+		'description' => clienttranslate('${actplayer} may spend a Command Point to re-roll once'),
+		'descriptionmyturn' => clienttranslate('${you} may spend a Command Point to re-roll once'),
+		'type' => 'activeplayer',
+		'possibleactions' => ['actReroll'],
 		'transitions' => ['continue' => 70]
 	],
 // 7. SELECTING ENTRY POINTS
@@ -64,6 +85,15 @@ $machinestates = [
 		'name' => 'EntryPoints',
 		'type' => 'game',
 		'action' => 'stEntryPoints',
+		'transitions' => ['continue' => 75]
+	],
+	75 => [
+		'name' => 'SelectEntryPoint',
+		'description' => clienttranslate('${actplayer} must choose an entry point on the map'),
+		'descriptionmyturn' => clienttranslate('${you} must choose an entry point on the map'),
+		'type' => 'activeplayer',
+		'args' => 'argSelectEntryPoint',
+		'possibleactions' => ['actSelectEntryPoint'],
 		'transitions' => ['continue' => 80]
 	],
 // 8. MODE-SPECIFIC SETUP

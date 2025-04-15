@@ -9,6 +9,9 @@ namespace Bga\Games\Tannhauser;
 
 class Characters extends \APP_GameClass
 {
+	const REICH = ['Eva Krämer', 'Hermann Von Heïzinger', /* 'Karl Zermann', 'Schocktruppen', 'Stosstruppen' */];
+	const UNION = ['John MacNeal', 'Barry Daniel Brown', /* 'Tala Aponi', 'Commando Alpha', 'Commando Delta' */];
+//
 	const CHARACTERS = [
 		'Eva Krämer' => [
 			'SPECIAL OBJECT' => 'STRAFE',

@@ -22,4 +22,16 @@ class Tokens extends \APP_GameClass
 	{
 		return self::getObjectListFromDB("SELECT * FROM tokens WHERE id = $id")[0];
 	}
+	static function getAtLocation(string $location): array
+	{
+		return self::getObjectListFromDB("SELECT * FROM tokens WHERE location = '$location'");
+	}
+	static function getEquipmentFromFaction(string $faction): array
+	{
+		return self::getObjectListFromDB("SELECT type FROM tokens JOIN characters ON tokens.location = characters.name WHERE characters.faction = '$faction'", true);
+	}
+	static function getEntryPoints(): array
+	{
+		return self::getObjectListFromDB("SELECT id FROM tokens WHERE type LIKE 'ENTRY\_POINT\__'", true);
+	}
 }

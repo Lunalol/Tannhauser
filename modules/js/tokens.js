@@ -202,10 +202,10 @@ define(["dojo", "dojo/_base/declare"], function (dojo, declare)
 							_('Hardware • When attacking with the Flash Machine Gun A6a, add one additional die to your attack roll.')
 						]
 					},
-					'BA-42': {
-						lore: _(''),
+					'BG-42': {
+						lore: _('A vest embedded with plates of Illirium. When the vest is hit by a bullet, a battery-powered counter-flux field activates at the entry point, stopping the projectile cold.'),
 						description: [
-							_('')
+							_('Hardware • If you roll a Natural 10 on any shock roll to resist an attack with a Pistol Weapon or Automatic Weapon, all attack roll successes are canceled')
 						]
 					},
 					'CAPTAIN': {
@@ -359,8 +359,7 @@ define(["dojo", "dojo/_base/declare"], function (dojo, declare)
 				}
 			};
 //
-			new dijit.Tooltip({connectId: "ebd-body", selector: ".TANNtoken", showDelay: 1000, hideDelay: 250, getContent: (node) => this.pack(node.dataset.faction, '', node.dataset.type)});
-
+			new dijit.Tooltip({connectId: "ebd-body", selector: ".TANNtoken[data-faction='Reich'],.TANNtoken[data-faction='Unit']", showDelay: 1000, hideDelay: 250, getContent: (node) => this.pack(node.dataset.faction, '', node.dataset.type)});
 		},
 		pack: function (faction, pack, type)
 		{
@@ -382,8 +381,28 @@ define(["dojo", "dojo/_base/declare"], function (dojo, declare)
 		{
 			console.log('place', token);
 //
-			const container = document.querySelector(`.TANNsheet[data-name='${token.location}']`, 'game_play_area');
-			dojo.place(`<div class='TANNtoken' data-faction='${token.faction}' data-type='${token.type}'></div>`, container);
+			if (isNaN(token.location))
+			{
+				const container = document.querySelector(`.TANNsheet[data-name='${token.location}']`, 'game_play_area');
+				const node = dojo.place(`<div id='TANNtoken-${token.id}' class='TANNtoken' data-id='${token.id}' data-faction='${token.faction}' data-type='${token.type}' data-location='${token.location}'></div>`, container);
+			}
+			else
+			{
+				const container = 'TANNbackground';
+				const node = dojo.place(`<div id='TANNtoken-${token.id}' class='TANNtoken' data-id='${token.id}' data-faction='neutral' data-type='${token.type}' data-location='${token.location}'></div>`, container);
+				dojo.style(node, 'left', `${CIRCLES[token.location][0] - 2.5}%`);
+				dojo.style(node, 'top', `${CIRCLES[token.location][1] - 2.5}%`);
+//
+				dojo.connect(node, 'click', (event) =>
+				{
+					dojo.stopEvent(event);
+					if (dojo.hasClass(event.currentTarget, 'TANNselectable'))
+					{
+						dojo.query('.TANNselected').removeClass('TANNselected');
+						dojo.toggleClass(event.currentTarget, 'TANNselected');
+					}
+				});
+			}
 		}
 	}
 	);
